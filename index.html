@@ -181,10 +181,10 @@
 </div>
 
 <script>
-    // Sistemdeki kayıtlı veriler
+    // Sistemdeki kayıtlı veriler - Hatalar düzeltildi
     const database = {
         "9240248": { user: "uxaklar", rank: "Kurucu", webKurucusu: true },
-        "9349302": { user: "yagiz0038", rank: "Kurucu", webKurucusu: false }
+        "9349302": { user: "yagiz0038", rank: "Kurucu", webKurucusu: false },
         "yusuf312": { user: "YusufBenHesapBanYedi", rank: "Kurucu", webKurucusu: false }
     };
 
@@ -196,18 +196,15 @@
         const data = database[codeInput];
 
         if (data && data.user.toLowerCase() === userInput.toLowerCase()) {
-            // Başarılı Giriş
             infoBox.style.display = "block";
             document.getElementById('displayCode').innerText = codeInput;
             document.getElementById('displayRank').innerText = "Rütbe: " + data.rank;
             
-            // Web Kurucusu yazısı sadece uxaklar için gözüksün
             const webSection = document.getElementById('webKurucusuSection');
             webSection.style.display = data.webKurucusu ? "block" : "none";
             
             document.getElementById('accessCode').style.borderColor = "#2ed573";
         } else {
-            // Hatalı Giriş
             alert("❌ Roblox ismi veya Kod yanlış!");
             infoBox.style.display = "none";
             document.getElementById('accessCode').style.borderColor = "#ff4757";
